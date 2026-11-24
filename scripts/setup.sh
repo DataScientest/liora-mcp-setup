@@ -34,7 +34,7 @@ fail() { printf '\n✖ %s\n' "$*" >&2; exit 1; }
 ask() {
   local msg="$1" def="${2:-}" hidden="${3:-}" extra=""
   [ "$hidden" = "hidden" ] && extra=" with hidden answer"
-  osascript -e "text returned of (display dialog \"${msg}\" default answer \"${def}\"${extra} buttons {\"Annuler\", \"Valider\"} default button \"Valider\" cancel button \"Annuler\" with title \"Liora MCP setup\" giving up after 900)" 2>/dev/null \
+  osascript -e 'tell application "System Events" to activate' -e "text returned of (display dialog \"${msg}\" default answer \"${def}\"${extra} buttons {\"Annuler\", \"Valider\"} default button \"Valider\" cancel button \"Annuler\" with title \"Liora MCP setup\" giving up after 900)" 2>/dev/null \
     || fail "Saisie annulée."
 }
 
