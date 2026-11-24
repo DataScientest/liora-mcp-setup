@@ -13,7 +13,7 @@ Aujourd'hui, un seul outil : **`liora-db`**, l'entrepôt de données de Nexus en
 
 ### Pour chaque personne
 
-- un Mac ;
+- un ordinateur sous macOS, Windows ou Linux (avec affichage) ;
 - Claude Code installé et connecté ;
 - un compte sur la passerelle IA de Liora, rattaché à une équipe qui a les droits ci-dessus ;
 - l'accès à la page interne « Liora MCP ».
@@ -61,7 +61,7 @@ Pour vérifier une installation sans rien changer, demande à Claude : « vérif
 
 ## Comment ça marche
 
-- `scripts/setup.sh` fait tout le travail. Il pose les questions dans des fenêtres macOS, vérifie que la clé ouvre bien des outils, puis ajoute le serveur à Claude Code en portée « user », donc disponible dans tous tes dossiers.
+- `scripts/setup.py` fait tout le travail, lancé avec `uv` (Claude l'installe s'il manque ; uv apporte son propre Python). Il pose les questions dans des fenêtres, vérifie que la clé ouvre bien des outils, puis ajoute le serveur à Claude Code en portée « user », donc disponible dans tous tes dossiers.
 - La clé va directement de la fenêtre de saisie à la config de Claude Code (`~/.claude.json`). Ni le script, ni Claude, ni ce repo ne l'affichent.
 - Les valeurs internes (adresse, nom du serveur) sont stockées sur ton poste dans `~/.config/liora-mcp/config.json`. Ce repo étant public, il n'en contient aucune.
 

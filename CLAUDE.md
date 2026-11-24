@@ -4,7 +4,7 @@ Ce repo installe et connecte à Claude Code les serveurs MCP de la passerelle Li
 
 ## Quand l'utilisateur demande d'installer, de connecter ou de réparer le MCP
 
-Utilise le skill `liora-mcp-setup` (`.claude/skills/liora-mcp-setup/SKILL.md`). Il lance `scripts/setup.sh`, qui fait tout le travail avec des fenêtres macOS.
+Utilise le skill `liora-mcp-setup` (`.claude/skills/liora-mcp-setup/SKILL.md`). Il lance `uv run scripts/setup.py`, qui fait tout le travail avec des fenêtres de saisie, sur macOS, Windows et Linux.
 
 ## Règles du repo
 
