@@ -4,9 +4,21 @@ Connecte les outils de la passerelle IA de Liora à Claude Code, sans taper une 
 
 Aujourd'hui, un seul outil : **`liora-db`**, l'entrepôt de données de Nexus en lecture seule (inscriptions, cohortes, modules, progression, feedbacks). D'autres outils et des skills de la passerelle viendront s'ajouter ici.
 
-## Installer (5 minutes, une seule fois)
+## Avant de commencer
 
-Il te faut un Mac, Claude Code, et un compte sur la passerelle IA de Liora.
+### Une fois pour toute l'équipe (référent ou admin de la passerelle)
+
+1. **Page interne « Liora MCP ».** Créer une page interne (Notion ou Drive, non publique) qui donne deux valeurs : l'adresse de la passerelle et le nom du serveur MCP sur la passerelle. Le setup les demande au premier lancement. Ce repo étant public, il ne les contient pas.
+2. **Droits sur la passerelle.** Les droits d'une clé sont l'intersection de la clé **et** de l'équipe. L'équipe de chaque utilisateur doit donc autoriser le serveur MCP et ses outils.
+
+### Pour chaque personne
+
+- un Mac ;
+- Claude Code installé et connecté ;
+- un compte sur la passerelle IA de Liora, rattaché à une équipe qui a les droits ci-dessus ;
+- l'accès à la page interne « Liora MCP ».
+
+## Installer (5 minutes, une seule fois)
 
 1. Ouvre ce dossier dans Claude Code.
 2. Écris : **« installe LiteLLM et le MCP »**.
