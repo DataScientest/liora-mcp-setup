@@ -1,0 +1,10 @@
+{
+  "gateway_url": "https://<adresse-de-la-passerelle>",
+  "servers": [
+    {
+      "name": "liora-db",
+      "gateway_server": "<nom-du-serveur-sur-la-passerelle>",
+      "description": "Entrepôt de données Nexus (lecture seule)"
+    }
+  ]
+}
