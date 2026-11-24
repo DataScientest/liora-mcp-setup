@@ -31,7 +31,9 @@ Si `/mcp` te propose « Re-authenticate », ignore-le : ce n'est pas nécessaire
 
 ## Créer la clé
 
-Dans la page **Virtual Keys** de la passerelle, clique sur **+ Create New Key** :
+Si tu as déjà une clé qui donne accès au serveur MCP, colle-la simplement : pas besoin d'en créer une nouvelle.
+
+Sinon, dans la page **Virtual Keys** de la passerelle, clique sur **+ Create New Key** :
 
 | Champ | Valeur |
 |---|---|
