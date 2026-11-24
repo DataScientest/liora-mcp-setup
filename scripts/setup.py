@@ -49,9 +49,25 @@ def fail(msg: str) -> None:
 
 
 # ── Fenêtres de saisie ────────────────────────────────────────────────────────
+def _point_tk_to_its_files() -> None:
+    """Le Python fourni par uv ne retrouve pas Tcl/Tk depuis l'environnement isolé de `uv run`
+    (« Can't find a usable init.tcl »). On lui indique où sont les fichiers, sous l'installation
+    de base : lib/tcl8.x (macOS, Linux) ou tcl/tcl8.x (Windows)."""
+    base = Path(sys.base_prefix)
+    for var, pattern, marker in (("TCL_LIBRARY", "tcl8*", "init.tcl"), ("TK_LIBRARY", "tk8*", "tk.tcl")):
+        if os.environ.get(var):
+            continue
+        for parent in (base / "lib", base / "tcl"):
+            found = [p for p in sorted(parent.glob(pattern)) if (p / marker).exists()]
+            if found:
+                os.environ[var] = str(found[-1])
+                break
+
+
 def ask(prompt: str, default: str = "", hidden: bool = False) -> str:
     """Pose une question dans une fenêtre. Repli sur le terminal s'il n'y a pas d'écran."""
     try:
+        _point_tk_to_its_files()
         import tkinter as tk
         from tkinter import simpledialog
 
@@ -62,7 +78,8 @@ def ask(prompt: str, default: str = "", hidden: bool = False) -> str:
             TITLE, prompt, initialvalue=default, show="*" if hidden else None, parent=root
         )
         root.destroy()
-    except Exception:
+    except Exception as exc:  # pas d'écran, ou Tk indisponible
+        print(f"(fenêtre indisponible : {type(exc).__name__}: {exc})", file=sys.stderr, flush=True)
         if not sys.stdin.isatty():
             fail("Impossible d'ouvrir une fenêtre de saisie sur ce poste (pas d'affichage). "
                  "Lance le setup dans un terminal : uv run scripts/setup.py")
